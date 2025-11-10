@@ -6,6 +6,7 @@ class Nodo:
         self.izq = None
         self.der = None
 
+#Valor en el arbol binario
 def insertar(nodo, valor):
     if nodo is None:
         return Nodo(valor)
@@ -15,6 +16,7 @@ def insertar(nodo, valor):
         nodo.der = insertar(nodo.der, valor)
     return nodo
 
+#Inserta en valor en el árbol binario
 def recorrido_inorden(nodo, resultado):
     if nodo is not None:
         recorrido_inorden(nodo.izq, resultado)

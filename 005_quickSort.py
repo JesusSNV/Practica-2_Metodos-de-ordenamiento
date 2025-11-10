@@ -1,12 +1,14 @@
 # ORDENAMIENTO RÁPIDO (QuickSort)
 
 def quick_sort(arr):
+    #Sí hay listas vacías o de solo un elemento
     if len(arr) <= 1:
         return arr
-    pivote = arr[len(arr) // 2]
+    pivote = arr[len(arr) // 2] #centro
     menores = [x for x in arr if x < pivote]
     iguales = [x for x in arr if x == pivote]
     mayores = [x for x in arr if x > pivote]
+    #Ordena recursivamente menores y mayores
     return quick_sort(menores) + iguales + quick_sort(mayores)
 
 

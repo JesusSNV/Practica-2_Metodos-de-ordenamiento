@@ -1,15 +1,19 @@
 # ORDENAMIENTO POR MEZCLA (MergeSort)
 
+#Sí hay más de un elemento se divide
 def merge_sort(arr):
     if len(arr) > 1:
         mitad = len(arr) // 2
         izquierda = arr[:mitad]
         derecha = arr[mitad:]
 
+        #Se ordena cada mitad
         merge_sort(izquierda)
         merge_sort(derecha)
 
         i = j = k = 0
+
+        #Se mezclan las dos mitades ordenadas
         while i < len(izquierda) and j < len(derecha):
             if izquierda[i] < derecha[j]:
                 arr[k] = izquierda[i]
@@ -19,6 +23,7 @@ def merge_sort(arr):
                 j += 1
             k += 1
 
+        #Se copian elementos restantes
         while i < len(izquierda):
             arr[k] = izquierda[i]
             i += 1

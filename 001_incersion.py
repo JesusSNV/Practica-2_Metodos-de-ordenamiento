@@ -1,17 +1,22 @@
-# ORDENAMIENTO POR SELECCIÓN (Selection Sort)
+# ORDENAMIENTO POR INSERCIÓN (Insertion Sort)
 
-def selection_sort(arr):
-    n = len(arr)
-    for i in range(n):
-        indice_min = i
-        for j in range(i + 1, n):
-            if arr[j] < arr[indice_min]:
-                indice_min = j
-        arr[i], arr[indice_min] = arr[indice_min], arr[i]
+def insertion_sort(arr):
+    # Recorre desde el segundo elemento hasta el final
+    for i in range(1, len(arr)):
+        clave = arr[i]       # Elemento a insertar
+        j = i - 1            # Índice del elemento anterior
+
+        # Desplaza los elementos mayores que la clave una posición adelante
+        while j >= 0 and arr[j] > clave:
+            arr[j + 1] = arr[j]
+            j -= 1
+
+        # Inserta la clave en la posición correcta
+        arr[j + 1] = clave
     return arr
 
 
 if __name__ == "__main__":
-    datos = [64, 25, 12, 22, 11]
+    datos = [64, 34, 25, 12, 22, 11, 90]
     print("Original:", datos)
-    print("Selection Sort:", selection_sort(datos.copy()))
+    print("Insertion Sort:", insertion_sort(datos.copy()))

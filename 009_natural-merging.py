@@ -4,6 +4,7 @@ def mezclar(a, b):
     """Mezcla dos listas ordenadas a y b y devuelve la lista resultante."""
     res = []
     i = j = 0
+    #Compara los elementos de ambas listas
     while i < len(a) and j < len(b):
         if a[i] <= b[j]:
             res.append(a[i])
@@ -23,6 +24,7 @@ def mezcla_natural(arr):
     if not arr:
         return []
 
+    #Detecta las sublistas ya ordenadas
     runs = []
     i = 0
     n = len(arr)
@@ -33,13 +35,14 @@ def mezcla_natural(arr):
             i += 1
         runs.append(arr[inicio:i])
 
+    #Mezcla las sublista de dos en dos hasta que quede una
     while len(runs) > 1:
         nuevas = []
         for k in range(0, len(runs), 2):
             if k + 1 < len(runs):
                 nuevas.append(mezclar(runs[k], runs[k+1]))
             else:
-                nuevas.append(runs[k])
+                nuevas.append(runs[k]) #En caos de queda una sublista sin pareja
         runs = nuevas
     return runs[0]
 

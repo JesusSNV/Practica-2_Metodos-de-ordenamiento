@@ -1,6 +1,7 @@
 # DISTRIBUCIÓN DE SERIES INICIALES (Distribution of Initial Runs)
 
 def distribucion_series_iniciales(arr):
+    #Detecta series o segmentos ya ordenado
     series = []
     i = 0
     while i < len(arr):
@@ -10,7 +11,9 @@ def distribucion_series_iniciales(arr):
         fin = i + 1
         series.append(arr[inicio:fin])
         i = fin
+    #Ordena individualmente cada serie
     series = [sorted(s) for s in series]
+    #Combina todas las series en un solo arreglo y lo ordena
     resultado = []
     for s in series:
         resultado.extend(s)
